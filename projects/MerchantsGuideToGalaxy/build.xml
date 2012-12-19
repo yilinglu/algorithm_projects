@@ -1,0 +1,80 @@
+<project name="MerchantsGuideToGalaxy" default="dist" basedir=".">
+	<description>
+        Buid file for Merchant's Guide To Galaxy
+    </description>
+	<!-- set global properties for this build -->
+	<property name="src" location="src"/>
+	<property name="test-src" location="test"/>
+	<property name="build" location="classes"/>
+	<property name="dist"  location="dist"/>
+	<property name="lib"  location="lib"/>
+	<property name="reports"  location="reports"/>
+	<property name="jar_file_name" value="mcguide.jar"/>
+
+
+
+	<target name="init">
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${build}"/>
+	</target>
+
+	<target name="compile" depends="init"
+        description="compile the source code" >
+		<javac srcdir="${src}" target="1.5" source="1.5" destdir="${build}" includeantruntime="false"/>
+		<javac srcdir="${test-src}"  target="1.5" source="1.5" destdir="${build}" includeantruntime="false">
+			<classpath>
+				<fileset dir="${lib}">
+					<include name="**/*.jar" />
+				</fileset>
+			</classpath>
+		</javac>
+	</target>
+
+
+	<target name="dist" depends="clean,compile" description="generate the distribution jar">
+		<mkdir dir="${dist}"/>
+		<jar destfile="${dist}/${jar_file_name}" basedir="${build}">
+			<manifest>
+				<attribute name="Main-Class" value="com.yiling.lu.guidetogalaxy.MerchantsGuide"/>
+			</manifest>
+		</jar>
+		<copy file="${basedir}/note.txt"
+			todir="${dist}" overwrite="true" verbose="true"/>
+	</target>
+
+	<target name="clean" description="clean up" >
+		<delete dir="${build}"/>
+		<delete dir="${dist}"/>
+		<delete dir="${reports}"/>
+	</target>
+
+
+	<target name="test" depends="clean,compile" description="run all test cases" >
+		<mkdir dir="${reports}"/>
+		<mkdir dir="${reports}/raw"/>
+		<junit printsummary="yes" haltonfailure="yes" showoutput="no" >
+			<classpath>
+				<pathelement path="${build}"/>
+				<fileset dir="lib">
+					<include name="**/*.jar"/>
+				</fileset>
+			</classpath>
+			<batchtest fork="yes" todir="${reports}/raw/">
+				<formatter type="xml"/>
+				<fileset dir="${test-src}">
+					<include name="*/**/*Test.java"/>
+				</fileset>
+			</batchtest>
+		</junit>
+
+		<junitreport todir="${reports}">
+			<fileset dir="${reports}/raw/">
+				<include name="TEST-*.xml"/>
+			</fileset>
+			<report format="frames" todir="${reports}\html\"/>
+		</junitreport>
+	</target>
+
+
+
+</project>
