@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="ctci-read-only/Chapter 1"/>
+	<classpathentry kind="src" path="ctci-read-only/Chapter 10"/>
+	<classpathentry kind="src" path="ctci-read-only/Chapter 11"/>
+	<classpathentry kind="src" path="ctci-read-only/Chapter 14"/>
+	<classpathentry kind="src" path="ctci-read-only/Chapter 16"/>
+	<classpathentry kind="src" path="ctci-read-only/Chapter 17"/>
+	<classpathentry kind="src" path="ctci-read-only/Chapter 18"/>
+	<classpathentry kind="src" path="ctci-read-only/Chapter 2"/>
+	<classpathentry kind="src" path="ctci-read-only/Chapter 3"/>
+	<classpathentry kind="src" path="ctci-read-only/Chapter 4"/>
+	<classpathentry kind="src" path="ctci-read-only/Chapter 5"/>
+	<classpathentry kind="src" path="ctci-read-only/Chapter 7"/>
+	<classpathentry kind="src" path="ctci-read-only/Chapter 8"/>
+	<classpathentry kind="src" path="ctci-read-only/Chapter 9"/>
+	<classpathentry kind="src" path="ctci-read-only/CtCILibrary"/>
+	<classpathentry kind="src" path="ctci-read-only/Introduction"/>
+	<classpathentry kind="src" path="ctci-read-only/Other Problems"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
