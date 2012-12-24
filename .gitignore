@@ -6,3 +6,4 @@
 *.ear
 
 /projects/ctci/bin
+/projects/ctci/*/bin
