@@ -1,9 +1,10 @@
-package com.yiling.lu.algorithm.sorting;
+package com.yiling.lu.algorithm.sorting.lineartime;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import com.yiling.lu.algorithm.sorting.lineartime.CountingSort;
 import com.yiling.lu.algorithm.util.AssortedUtils;
 
 public class CountingSortTest {
