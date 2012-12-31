@@ -1,8 +1,11 @@
 package com.yiling.lu.algorithm.sorting.lineartime;
 
 import static org.junit.Assert.*;
+import junit.framework.Assert;
 
 import org.junit.Test;
+
+import CtCILibrary.AssortedMethods;
 
 import com.yiling.lu.algorithm.sorting.lineartime.CountingSort;
 import com.yiling.lu.algorithm.util.AssortedUtils;
@@ -79,5 +82,33 @@ public class CountingSortTest {
 		int[] output = CountingSort.sort(input);
 		AssortedUtils.verifyOder(output, true);
 	}	
+	
+	@Test
+	public void testSortChar(){
+		String[] input = {"z", "b", "c", "a", "d", "f", "y", "x", "n", "m", "q", "p", "l"};
+		
+		String[] output = CountingSort.sortStringArray(input, 0);
+		
+		System.out.println("sorting result " + 
+		AssortedMethods.stringArrayToString(output));
+		AssortedUtils.verifyOrder(output);
+	}
+	
+	@Test
+	public void testGetKey(){
+		String str = "ab";
+		int r = CountingSort.getKey(str, 2);
+		Assert.assertEquals(r, (int)' ');
+
+		r = CountingSort.getKey(str, 3);
+		Assert.assertEquals(r, (int)' ');
+	
+		r = CountingSort.getKey(str, 0);
+		Assert.assertEquals(r, (int)'a');
+
+		r = CountingSort.getKey(str, 1);
+		Assert.assertEquals(r, (int)'b');
+		
+	}
 	
 }

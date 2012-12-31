@@ -50,4 +50,80 @@ public class CountingSort {
 		}
 		return max;
 	}
+	
+	/**
+	 * <p>
+	 * Use counting sort to sort the input string array by the character at specified index position.
+	 * </p>
+	 * <p>
+	 * Index starts from the first char of a string at value 0, to length of the string -1.
+	 * </p>
+	 * 
+	 * <p>
+	 * If pos is greater than or equal to length of the string, use empty space as the key character.
+	 * </p>
+	 * 
+	 * 
+	 * @param input
+	 * @param pos
+	 * @return input sorted by character at specified position
+	 * 
+	 */
+	public static String[] sortStringArray(String[] input, int pos){
+		// each element initialized to zero
+		int[] count = new int[256];
+		String[] result = new String[input.length];
+		
+		for(String str: input){
+			int key = getKey(str, pos);
+			count[key]++;
+		}
+		
+		for(int i=1; i<count.length; i++){
+			count[i] = count[i] + count[i-1];
+		}
+		
+		for(int i=input.length-1; i>=0; i--){
+			int key = getKey(input[i], pos);
+			int cnt = count[key];
+			result[cnt-1] = input[i];
+			count[key] = count[key]-1;
+		}
+		return result;
+	}
+	
+	/**
+	 * When pos is out of range of the argument string, treat argument
+	 * string as back padded by empty spaces.
+	 * 
+	 * @param str
+	 * @param pos
+	 * @return ASCI value of the character as argument index
+	 */
+	protected static int getKey(String str, int pos){
+		
+		if(pos>(str.length()-1)){
+			return ' ';
+
+		}else{
+			return (int)(str.charAt(pos));
+		}
+		
+	}	
+	
+//	protected static int getKey(String str, int pos, int maxLen){
+//		
+//		if(str.length()<maxLen){
+//			if(pos < maxLen - str.length()){
+//				// front pad with empty space when string is shorter than maxLen
+//				return (int)' ';
+//			}else{
+//				return str.charAt(pos - maxLen + str.length());
+//			}
+//		}else{
+//			return (int)(str.charAt(pos));
+//		}
+//		
+//	}
+		
 }

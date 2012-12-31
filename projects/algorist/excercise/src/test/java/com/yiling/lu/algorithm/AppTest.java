@@ -48,6 +48,10 @@ public class AppTest
     	System.out.println("plusZero " + plusZero);
     	System.out.println("minusZero " + minusZero);
     	System.out.println("cast to num " + (int)ch);
+    	
+    	char space = ' ';
+    	System.out.println("int value of space " + (int)' ');
+    	
     }
     
     @org.junit.Test
@@ -55,5 +59,15 @@ public class AppTest
     	int intvalue = 65;
     	
     	System.out.println("char value " + (char)intvalue);
+    }
+    
+    @org.junit.Test
+    public void testStringOrder(){
+    	String a = "x";
+    	String b = "abcd";
+    	
+    	int r = a.compareTo(b);
+    	
+    	System.out.println("comparision result: " + r);
     }
 }
