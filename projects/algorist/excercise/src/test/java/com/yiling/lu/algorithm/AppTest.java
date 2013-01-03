@@ -70,4 +70,10 @@ public class AppTest
     	
     	System.out.println("comparision result: " + r);
     }
+    
+    @org.junit.Test
+    public void testMod(){
+    	int value = -44;
+    	System.out.println("negative mod " + value%4);
+    }
 }
