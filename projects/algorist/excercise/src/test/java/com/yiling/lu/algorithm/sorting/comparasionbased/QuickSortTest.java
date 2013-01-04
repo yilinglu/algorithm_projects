@@ -9,7 +9,6 @@ import org.junit.Test;
 
 import CtCILibrary.AssortedMethods;
 
-import com.yiling.lu.algorithm.sorting.lineartime.CountingSort;
 import com.yiling.lu.algorithm.util.AssortedUtils;
 
 public class QuickSortTest {
@@ -51,6 +50,17 @@ public class QuickSortTest {
 	@Test
 	public void testAllDuplicates() {
 		String[] array = {"z", "z", "z", "z", "z"};
+		
+		QuickSort.qsort(array);
+		
+		System.out.println("sorting result " + 
+		AssortedMethods.stringArrayToString(array));
+		AssortedUtils.verifyOrder(array);		
+	}	
+	
+	@Test
+	public void testSorted() {
+		String[] array = {"a", "b", "c", "d", "e"};
 		
 		QuickSort.qsort(array);
 		

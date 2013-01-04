@@ -1,8 +1,11 @@
 package com.yiling.lu.algorithm.sorting.comparasionbased;
 
+import java.util.Random;
+
 public class QuickSort {
 
 	public static <E> void qsort(Comparable<E>[] array){
+		shuffle(array);
 		qsortInternal(array, 0, array.length-1);
 	}
 	
@@ -37,9 +40,22 @@ public class QuickSort {
 		return low;
 	}
 	
-	private static <E> void swap(Comparable<E>[] input, int a, int b){
-		Comparable<E> tmp = input[a];
-		input[a] = input[b];
-		input[b] = tmp;
+	private static <E> void shuffle(Comparable<E>[] array){
+		Random rand = new Random();
+		int r = rand.nextInt(7);
+		
+		for(int i=0; i<array.length; i++){
+			int w = (i+r)%array.length;
+			swap(array, i,w);
+		}
 	}
+	
+	private static <E> void swap(Comparable<E>[] input, int a, int b){
+		if(a != b){
+			Comparable<E> tmp = input[a];
+			input[a] = input[b];
+			input[b] = tmp;
+		}
+	}
+	
 }
