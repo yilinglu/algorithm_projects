@@ -10,6 +10,11 @@ public class Hashing {
 	 * @return hashing integer value
 	 */
 	public static int computHash(String str){
+		if(str == null || str.length() == 0){
+			return -1;
+		}
+		str = str.toLowerCase();
+		
 		double result = 0;
 		for(int i=0; i<str.length(); i++){
 			char cur = str.charAt(i);

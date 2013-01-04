@@ -1,6 +1,5 @@
 package com.yiling.lu.algorithm.hashing;
 
-import static org.junit.Assert.*;
 import junit.framework.Assert;
 
 import org.junit.Test;
@@ -39,11 +38,28 @@ public class HashingTest {
 		Assert.assertEquals(0.0, value);
 	}	
 	
+	@Test
 	public void testLargeNumber(){
-		double value = Hashing.computHash("zzz");
+		String s = "zzz";
+		double value = Hashing.computHash(s);
 		
-		Assert.assertEquals(0.0, value);
-		
+		System.out.println("Hash value of " + s + " is " + value);
+		Assert.assertEquals(17575.0, value);
 	}
+	
+	@Test
+	public void testLargeNumber2(){
+		StringBuilder builder = new StringBuilder();
+		
+		for(int i=0; i<4; i++){
+			builder.append("z");
+		}
+		String s = builder.toString();
+		
+		double value = Hashing.computHash(s);
+		
+		System.out.println("Hash value of " + s + " is " + value);
+		Assert.assertEquals(456975.0, value);
+	}	
 
 }
