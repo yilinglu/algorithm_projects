@@ -1,4 +1,4 @@
-package com.yiling.lu.algorithm.sorting.lineartime;
+package com.yiling.lu.algorithm.problem.sorting.lineartime;
 
 import static org.junit.Assert.*;
 import junit.framework.Assert;
@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import CtCILibrary.AssortedMethods;
 
-import com.yiling.lu.algorithm.sorting.lineartime.CountingSort;
+import com.yiling.lu.algorithm.problem.sorting.lineartime.CountingSort;
 import com.yiling.lu.algorithm.util.AssortedUtils;
 
 public class CountingSortTest {

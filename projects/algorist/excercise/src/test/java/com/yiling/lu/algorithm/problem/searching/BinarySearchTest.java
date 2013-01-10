@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import CtCILibrary.AssortedMethods;
 
-import com.yiling.lu.algorithm.sorting.comparasionbased.QuickSort;
+import com.yiling.lu.algorithm.problem.sorting.comparasionbased.QuickSort;
 import com.yiling.lu.algorithm.util.AssortedUtils;
 
 public class BinarySearchTest{

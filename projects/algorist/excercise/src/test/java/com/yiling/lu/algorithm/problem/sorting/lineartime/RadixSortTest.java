@@ -1,9 +1,10 @@
-package com.yiling.lu.algorithm.sorting.lineartime;
+package com.yiling.lu.algorithm.problem.sorting.lineartime;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import com.yiling.lu.algorithm.problem.sorting.lineartime.RadixSort;
 import com.yiling.lu.algorithm.util.AssortedUtils;
 
 public class RadixSortTest {

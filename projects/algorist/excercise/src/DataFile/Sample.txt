@@ -1,0 +1,14 @@
+Satisfy customers through early and continuous delivery of working software features.
+Accept customers’ changing software requirements, even if they arise late in the development.
+Deliver software upgrades frequently to customers, preferably every two weeks or, at most, every two
+months.
+Deploy a team of motivated developers to build the software. Give them the necessary support and an
+environment conducive to work and trust them to complete the work.
+Keep in touch and cooperate closely with customers on a daily basis.
+Encourage communication between developers on a face-to-face basis.
+Measure development progress primarily via correctly functioning software.
+Pay continuous attention to technical excellence and good software design.
+Observe Occam’s Razor — keep everything simple.
+Allow the development team to self-organize in order to maximize performance.
+Encourage the development team to self-reflect and change its working practices in order to become
+more effective.

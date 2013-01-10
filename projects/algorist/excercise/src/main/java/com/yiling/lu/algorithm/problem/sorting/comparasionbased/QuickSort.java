@@ -1,4 +1,4 @@
-package com.yiling.lu.algorithm.sorting.comparasionbased;
+package com.yiling.lu.algorithm.problem.sorting.comparasionbased;
 
 import java.util.Random;
 

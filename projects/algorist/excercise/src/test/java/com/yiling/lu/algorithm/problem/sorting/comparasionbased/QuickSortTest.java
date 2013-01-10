@@ -1,4 +1,4 @@
-package com.yiling.lu.algorithm.sorting.comparasionbased;
+package com.yiling.lu.algorithm.problem.sorting.comparasionbased;
 
 import static org.junit.Assert.*;
 
@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import CtCILibrary.AssortedMethods;
 
+import com.yiling.lu.algorithm.problem.sorting.comparasionbased.QuickSort;
 import com.yiling.lu.algorithm.util.AssortedUtils;
 
 public class QuickSortTest {

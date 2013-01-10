@@ -1,4 +1,4 @@
-package com.yiling.lu.algorithm.sorting.lineartime;
+package com.yiling.lu.algorithm.problem.sorting.lineartime;
 
 /**
  * Counting sort assume each of the n input elements is an integer
