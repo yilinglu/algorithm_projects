@@ -25,8 +25,8 @@ public class BinaryOccurrenceSearchTest {
 	public void testFindRightIndex() {
 		String[] array = { "a", "a", "a" };
 
-		int rigthIndex = BinarySearch
-				.searchRightMostOccurrenceIndex(array, "a");
+		int rigthIndex = BoundaryBinarySearch
+				.findRightBoundaryIndex(array, "a");
 		System.out.println("index of the right most occurrence: " + 1);
 		Assert.assertEquals(2, rigthIndex);
 	}
@@ -35,8 +35,8 @@ public class BinaryOccurrenceSearchTest {
 	public void testFindRightIndex2() {
 		String[] array = { "a" };
 
-		int rigthIndex = BinarySearch
-				.searchRightMostOccurrenceIndex(array, "a");
+		int rigthIndex = BoundaryBinarySearch
+				.findRightBoundaryIndex(array, "a");
 		System.out.println("index of the right most occurrence: " + 1);
 		Assert.assertEquals(0, rigthIndex);
 	}
@@ -45,20 +45,20 @@ public class BinaryOccurrenceSearchTest {
 	public void testFindRightIndex3() {
 		String[] array = { "a", "a", "a", "d", "e", "g", "g" };
 
-		int rightIndex = BinarySearch
-				.searchRightMostOccurrenceIndex(array, "g");
+		int rightIndex = BoundaryBinarySearch
+				.findRightBoundaryIndex(array, "g");
 		System.out.println("index of the right most occurrence: " + rightIndex);
 		Assert.assertEquals(6, rightIndex);
 
-		rightIndex = BinarySearch.searchRightMostOccurrenceIndex(array, "a");
+		rightIndex = BoundaryBinarySearch.findRightBoundaryIndex(array, "a");
 		System.out.println("index of the right most occurrence: " + rightIndex);
 		Assert.assertEquals(2, rightIndex);
 
-		rightIndex = BinarySearch.searchRightMostOccurrenceIndex(array, "d");
+		rightIndex = BoundaryBinarySearch.findRightBoundaryIndex(array, "d");
 		System.out.println("index of the right most occurrence: " + rightIndex);
 		Assert.assertEquals(3, rightIndex);
 
-		rightIndex = BinarySearch.searchRightMostOccurrenceIndex(array, "e");
+		rightIndex = BoundaryBinarySearch.findRightBoundaryIndex(array, "e");
 		System.out.println("index of the right most occurrence: " + rightIndex);
 		Assert.assertEquals(4, rightIndex);
 
@@ -68,19 +68,19 @@ public class BinaryOccurrenceSearchTest {
 	public void testFindLeftIndex() {
 		String[] array = { "a", "a", "a", "d", "e", "g", "g" };
 
-		int left = BinarySearch.searchLeftMostOccurrenceIndex(array, "g");
+		int left = BoundaryBinarySearch.findLeftBoundaryIndex(array, "g");
 		System.out.println("index of the right most occurrence: " + left);
 		Assert.assertEquals(5, left);
 
-		left = BinarySearch.searchLeftMostOccurrenceIndex(array, "a");
+		left = BoundaryBinarySearch.findLeftBoundaryIndex(array, "a");
 		System.out.println("index of the right most occurrence: " + left);
 		Assert.assertEquals(0, left);
 
-		left = BinarySearch.searchLeftMostOccurrenceIndex(array, "d");
+		left = BoundaryBinarySearch.findLeftBoundaryIndex(array, "d");
 		System.out.println("index of the right most occurrence: " + left);
 		Assert.assertEquals(3, left);
 
-		left = BinarySearch.searchLeftMostOccurrenceIndex(array, "e");
+		left = BoundaryBinarySearch.findLeftBoundaryIndex(array, "e");
 		System.out.println("index of the right most occurrence: " + left);
 		Assert.assertEquals(4, left);
 
