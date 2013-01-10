@@ -1,4 +1,4 @@
-package com.yiling.lu.algorithm.problem.longestCommonSubstring;
+package com.yiling.lu.algorithm.problem.longestSomething;
 
 public class LongestIncreasingSubsequence {
 
