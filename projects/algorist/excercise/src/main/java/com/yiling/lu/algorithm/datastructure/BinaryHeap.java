@@ -39,6 +39,10 @@ public class BinaryHeap<T extends Comparable<T>> {
 		return null;
 	}
 
+	/**
+	 * Or extrax Max if we like.
+	 * @return
+	 */
 	public T deleteMax() {
 		return null;
 	}
