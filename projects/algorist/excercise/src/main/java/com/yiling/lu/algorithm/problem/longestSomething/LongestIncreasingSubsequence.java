@@ -12,8 +12,9 @@ import java.util.Stack;
  */
 public class LongestIncreasingSubsequence {
 
-//	public static <E> Stack<E> findLIS(Comparable[] a) {
-//		//E[] len = new <? extends E>[a.length];
-//
-//	}
+	public static <T extends Comparable<T>> Stack<T> findLIS(T a) {
+		return null;
+
+
+	}
 }
