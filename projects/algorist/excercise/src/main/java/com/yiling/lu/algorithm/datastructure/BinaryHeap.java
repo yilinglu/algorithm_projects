@@ -1,11 +1,16 @@
 package com.yiling.lu.algorithm.datastructure;
 
+import java.lang.reflect.Array;
+
 /**
  * "The heap is a slick data structure that enables us to represent binary trees
  * without using any pointers. We will store data as an array of keys, and use
  * the position of the keys to implicitly satisfy the role of the pointers." - TADM
  * 
  * Section 4.3 in TADM, Heapsort: Fast sorting via data structure.
+ * 
+ * This implementation has no capacity growth strategy. Make sure to 
+ * initialize proper capacity.
  * 
  * @author ylu
  * 
@@ -20,8 +25,8 @@ public class BinaryHeap<T extends Comparable<T>> {
 		heapSize = a.length;
 	}
 
-	public BinaryHeap() {
-
+	public BinaryHeap(Class<T> clazz, int initialCapacity) {
+		array = (T[])Array.newInstance(clazz, initialCapacity);
 	}	
 	
 	/**
@@ -38,7 +43,7 @@ public class BinaryHeap<T extends Comparable<T>> {
 	
 	private void bubbleUp(int index){
 		while(index > 0){
-			int parent = parent(index);
+			int parent = getParentIndex(index);
 			if(array[parent].compareTo(array[index]) < 0){
 				swap(array, parent, index);
 			}
@@ -46,28 +51,34 @@ public class BinaryHeap<T extends Comparable<T>> {
 		}
 	}
 	
-	private void bubbleDown(T[] a, int rootIndex){
-		if(a[rootIndex] == null){
+	public void insert(T p) {
+		if(heapSize >= array.length){
+			throw new RuntimeException("Error: Exceeded heap capacity.");
+		}
+		int maxIndex = heapSize;
+		array[maxIndex] = p;
+		heapSize++;
+		bubbleUp(maxIndex);
+	}	
+	
+	private void bubbleDown(T[] a, int p){
+		if(a[p] == null){
 			throw new RuntimeException("Null element not allowed in input array!");
 		}
-		int left = left(rootIndex);
+		int left = left(p);
 		
-//		int minIndex = rootIndex;
-//		for(int i = left; i< heapLen; i++){
-//			if(a[i])
-//		}
+		int maxIndex = p;
 		
-		int right = right(rootIndex);
-		
-		if(left < heapSize && a[left].compareTo(a[rootIndex]) > 0){
-			swap(a, left, rootIndex);
-			bubbleDown(a,left);
-		}
-		if(right < heapSize && a[right].compareTo(a[rootIndex]) > 0){
-			swap(a, right, rootIndex);
-			bubbleDown(a, right);
+		for(int i = left; i< heapSize; i++){
+			if(a[i].compareTo(a[maxIndex]) > 0){
+				maxIndex = i;
+			}
 		}
 		
+		if(maxIndex != p){
+			swap(a, p, maxIndex);
+			bubbleDown(a, maxIndex);
+		}
 	}
 	
 	private void swap(T[] a, int i, int j){
@@ -78,7 +89,7 @@ public class BinaryHeap<T extends Comparable<T>> {
 		}
 	}
 
-	private int parent(Integer i) {
+	private int getParentIndex(Integer i) {
 		//return new Double(Math.floor((i - 1.0) / 2.0)).intValue();
 		return i/2;
 	}
@@ -89,12 +100,6 @@ public class BinaryHeap<T extends Comparable<T>> {
 
 	private int right(Integer i) {
 		return i * 2 + 2;
-	}
-
-	public void insert(T p) {
-		array[heapSize] = p;
-		bubbleUp(heapSize);
-		heapSize++;
 	}
 
 	public T findMax() {
