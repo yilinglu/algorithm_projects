@@ -1,8 +1,15 @@
-package com.yiling.lu.algorithm.problem.longestSomething;
+package com.yiling.lu.algorithm.problem.longestSomething.maxSubarray;
 
 /**
  * Solution in CLRS book, divide and conquer chapter. There is a question
  * regarding this in TADM book
+ * 
+ * The following is a literal implementation after reading the hit on 
+ * CLRS page 75, 4.1-5. Result is a much complicated than needed algorithm.
+ * The same linear time algorithm is re-implemented in LinearMaxSubarray.java.
+ * 
+ * The result of this implementation is correct, but the impl is way too complicated.
+ * 
  * 
  * @author ylu
  * 
