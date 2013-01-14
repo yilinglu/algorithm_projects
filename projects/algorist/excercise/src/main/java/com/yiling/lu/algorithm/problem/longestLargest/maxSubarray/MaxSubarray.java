@@ -1,4 +1,4 @@
-package com.yiling.lu.algorithm.problem.longestSomething.maxSubarray;
+package com.yiling.lu.algorithm.problem.longestLargest.maxSubarray;
 
 /**
  * Solution in CLRS book, divide and conquer chapter. There is a question

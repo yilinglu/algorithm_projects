@@ -1,4 +1,4 @@
-package com.yiling.lu.algorithm.problem.longestSomething;
+package com.yiling.lu.algorithm.problem.longestLargest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,9 +38,8 @@ import java.util.PriorityQueue;
  * 
  */
 public class LongestIncreasingSequence {
-	PriorityQueue<HeapNode> maxHeap = new PriorityQueue<HeapNode>();
 
-	public List<Comparable> findLIS(Comparable[] array) {
+	public static List<Comparable> findLIS(Comparable[] array) {
 		ArrayList<Comparable> list = new ArrayList<Comparable>();
 		int size = array.length;
 		
@@ -76,19 +75,21 @@ public class LongestIncreasingSequence {
 
 		}
 		
-		int indexOfLis = findIndexOfMax(maxLIS);
-		
-		Integer m = indexOfLis;
-		
-		while(m != null){
-			list.add(0, array[m]);
-			m = pre[m];
+		if(maxLIS.length>0){
+			int indexOfLis = findIndexOfMax(maxLIS);
+			
+			Integer m = indexOfLis;
+			
+			while(m != null){
+				list.add(0, array[m]);
+				m = pre[m];
+			}
 		}
 		
 		return list;
 	}
 
-	private int findIndexOfMax(Comparable[] a){
+	private static int findIndexOfMax(Comparable[] a){
 		int indexOfMax = 0;
 		for(int i=0; i<a.length; i++){
 			if(a[i].compareTo(a[indexOfMax])>=0){

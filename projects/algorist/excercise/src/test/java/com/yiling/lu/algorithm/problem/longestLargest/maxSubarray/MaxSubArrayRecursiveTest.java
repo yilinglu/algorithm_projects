@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.yiling.lu.algorithm.problem.longestSomething.maxSubarray;
+package com.yiling.lu.algorithm.problem.longestLargest.maxSubarray;
 
 import static org.junit.Assert.*;
 
@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.yiling.lu.algorithm.problem.longestSomething.maxSubarray.MaxSubArrayRecursive;
+import com.yiling.lu.algorithm.problem.longestLargest.maxSubarray.MaxSubArrayRecursive;
 
 import CtCILibrary.AssortedMethods;
 

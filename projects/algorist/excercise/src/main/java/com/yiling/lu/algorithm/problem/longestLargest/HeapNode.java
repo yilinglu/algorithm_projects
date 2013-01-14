@@ -1,4 +1,4 @@
-package com.yiling.lu.algorithm.problem.longestSomething;
+package com.yiling.lu.algorithm.problem.longestLargest;
 
 public class HeapNode implements Comparable{
 	protected final Comparable length;
