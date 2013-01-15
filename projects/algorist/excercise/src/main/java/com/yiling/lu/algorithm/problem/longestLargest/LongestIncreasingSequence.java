@@ -34,6 +34,9 @@ import java.util.PriorityQueue;
  * </li>
  * </ol>
  * 
+ * http://en.wikipedia.org/wiki/Longest_increasing_subsequence
+ * 
+ * 
  * @author ylu
  * 
  */
