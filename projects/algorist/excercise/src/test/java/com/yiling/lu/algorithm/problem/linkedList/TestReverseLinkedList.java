@@ -57,7 +57,7 @@ public class TestReverseLinkedList {
 	@Test
 	public void testReverse() {
 		
-		LinkedListNode head = AssortedMethods.randomLinkedList(3, 11, 111);
+		LinkedListNode head = AssortedMethods.randomLinkedList(30, 11, 111);
 		LinkedListNode tempHead = head;
 		
 		List<Integer> org = new ArrayList<Integer>();

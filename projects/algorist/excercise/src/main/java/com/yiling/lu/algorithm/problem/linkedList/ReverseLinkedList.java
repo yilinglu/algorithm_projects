@@ -4,23 +4,21 @@ import CtCILibrary.LinkedListNode;
 
 public class ReverseLinkedList {
 
-	private static void doReverse(LinkedListNode x, LinkedListNode first, LinkedListNode resultHead){
+	private static LinkedListNode doReverse(LinkedListNode x, LinkedListNode first){
 		
 		LinkedListNode second = first.next;
 		
 		first.next = x;
 		
 		if(second != null){
-			doReverse(first, second, resultHead);
+			return doReverse(first, second);
 		}else{
-			resultHead = first;
+			return first;
 		}
 	}
 	
 	public static LinkedListNode reverse(LinkedListNode head){
-		LinkedListNode n = null;
-		doReverse(null, head, n);
-		return n;
+		return doReverse(null, head);
 	}
 	
 }

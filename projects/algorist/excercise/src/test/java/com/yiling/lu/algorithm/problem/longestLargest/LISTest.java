@@ -72,10 +72,25 @@ public class LISTest {
 	@Test
 	public void testFindLIS6() {
 		Integer[] array = new Integer[]{50, 60, 70, 80, 90, 5, 6, 7, 12,13};
-		
+		//0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15,
 		List<Comparable> list = LongestIncreasingSequence.findLIS(array);
 		
 		assertEquals(5, list.get(0));
-	}		
+	}	
+	
+	@Test
+	public void testFindLIS7() {
+		Integer[] array = new Integer[]{0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15};
+		//0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 1
+		List<Comparable> list = LongestIncreasingSequence.findLIS(array);
+		
+		
+		assertEquals(0, list.get(0));
+		assertEquals(2, list.get(1));
+		assertEquals(6, list.get(2));
+		assertEquals(9, list.get(3));
+		assertEquals(11, list.get(4));
+		assertEquals(15, list.get(5));
+	}	
 
 }
