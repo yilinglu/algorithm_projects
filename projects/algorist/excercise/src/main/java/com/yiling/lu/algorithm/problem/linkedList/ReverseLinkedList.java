@@ -2,6 +2,11 @@ package com.yiling.lu.algorithm.problem.linkedList;
 
 import CtCILibrary.LinkedListNode;
 
+/**
+ * 
+ * @author ylu
+ *
+ */
 public class ReverseLinkedList {
 
 	private static LinkedListNode doReverseRecursively(LinkedListNode x, LinkedListNode first){
@@ -33,12 +38,11 @@ public class ReverseLinkedList {
 			x = first;
 
 			if (second == null) {
-				return first;
+				break;
 			} else {
 				first = second;
 			}
 		}
-		
 		return first;
 	}
 		
