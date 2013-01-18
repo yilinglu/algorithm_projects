@@ -65,6 +65,7 @@ public class WordFrequencyCounter {
 			}
 		}
 	}
+	
 
 	private void processList(List<String> list) {
 		String[] input = new String[1];
