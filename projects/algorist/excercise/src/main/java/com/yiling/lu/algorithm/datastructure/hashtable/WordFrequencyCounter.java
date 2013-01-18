@@ -99,6 +99,7 @@ public class WordFrequencyCounter {
 			hashtable.put(maxphrase, maxcount);
 		}
 		hashtable.put(key, 1);
+		
 	}
 
 	public int getMaxCount() {
