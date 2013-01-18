@@ -45,6 +45,7 @@ public class WordFrequencyCounter {
 
 			while (scanner.hasNext()) {
 				String str = scanner.next();
+				System.out.println(str);
 				list.add(str.toLowerCase());
 				count++;
 
@@ -81,9 +82,9 @@ public class WordFrequencyCounter {
 		}
 
 		for (int i = 0; i < len - 1; i++) {
-			System.out.print("\"");
-			System.out.print(input[i]);
-			System.out.print("\"");
+//			System.out.print("\"");
+//			System.out.print(input[i]);
+//			System.out.print("\"");
 			
 			addToTable(input[i], input[i + 1]);
 		}
@@ -94,12 +95,15 @@ public class WordFrequencyCounter {
 		String key = a.concat(" ").concat(b);
 
 		Integer count = hashtable.get(key);
-		if (count != null && (count + 1) > maxcount) {
-			maxcount = count + 1;
-			maxphrase = key;
-			hashtable.put(maxphrase, maxcount);
+		if (count != null) {
+			hashtable.put(key, ++count);
+		}else{
+			hashtable.put(key, 1);
 		}
-		hashtable.put(key, 1);
+		if(count != null && count > maxcount){
+			maxcount = count;
+			maxphrase = key;
+		}
 		
 	}
 

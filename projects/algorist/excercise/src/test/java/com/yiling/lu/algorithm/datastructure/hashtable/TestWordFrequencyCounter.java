@@ -29,12 +29,12 @@ public class TestWordFrequencyCounter {
 	@Test
 	public void test() {
 		System.out.println("current directory: " + System.getProperty("user.dir"));
-		String filePath = System.getProperty("user.dir") + "/src/test/test-files/simple.txt";
+		String filePath = System.getProperty("user.dir") + "/src/test/test-files/resume.txt";
 		WordFrequencyCounter counter = new WordFrequencyCounter();
 		counter.processFile(filePath);
 		
-		System.out.println("max count " + counter.getMaxCount());
-		System.out.println("max word " + counter.getMaxword());
+		System.out.println("max count: " + counter.getMaxCount());
+		System.out.println("max word: " + counter.getMaxword());
 	}
 
 }
