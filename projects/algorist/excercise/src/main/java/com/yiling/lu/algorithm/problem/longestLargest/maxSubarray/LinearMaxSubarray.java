@@ -12,13 +12,13 @@ public class LinearMaxSubarray {
 		int runningTotal = max;
 		
 		for(int k=high+1; k<input.length; k++){
+			
 			runningTotal = runningTotal + input[k];
 			
-			if(runningTotal > max){
-				max = runningTotal;
-				high = k;
-			}
-			
+			if(runningTotal+input[k] > max){
+				max = runningTotal+input[k];
+				high = k;		
+			}else 	
 			if(input[k] > max){
 				low = k;
 				high = k;

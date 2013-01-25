@@ -201,4 +201,26 @@ public class MaxSubarrayTest {
 		}
 		return runningTotal;
 	}
+	
+	@Test
+	public void testFindMaxSubArrayLinear1() {
+		int[] array = {1,2,-50,1,2,1};
+		int[] result = LinearMaxSubarray.maxSubarray(array);
+		AssortedMethods.printIntArray(result);
+		
+		assertEquals(3, result[0]);
+		assertEquals(5, result[1]);
+		assertEquals(4, result[2]);
+	}	
+	
+	@Test
+	public void testFindMaxSubArrayRecursive1() {
+		int[] array = {1,2,-50,1,2,1};
+		int[] result = MaxSubArrayRecursive.maxSubarray(array);
+		AssortedMethods.printIntArray(result);
+		
+		assertEquals(3, result[0]);
+		assertEquals(5, result[1]);
+		assertEquals(4, result[2]);
+	}		
 }
