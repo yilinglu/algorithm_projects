@@ -21,10 +21,10 @@ public class AssortedUtils {
 		System.out.println();
 	}
 
-	public static void verifyOrder(String[] input) {
+	public static void verifyOrder(Comparable[] input) {
 		for (int i = 1; i < input.length; i++) {
-			String str1 = input[i - 1];
-			String str2 = input[i];
+			Comparable str1 = input[i - 1];
+			Comparable str2 = input[i];
 			int result = str1.compareTo(str2);
 
 			Assert.assertTrue("expecting " + str1 + " be after (greater than) "
