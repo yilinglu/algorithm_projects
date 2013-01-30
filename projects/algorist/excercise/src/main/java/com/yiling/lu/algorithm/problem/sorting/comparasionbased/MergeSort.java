@@ -5,10 +5,16 @@ public class MergeSort {
 	private long inversionCount = 0;
 	
 	public Integer[] mergeSort(Integer[] input){
+		long startTime = System.currentTimeMillis();		
 		if(input == null || input.length ==0 || input.length == 1){
 			return input;
 		}else{
-			return mergesortInternal(input, 0, input.length-1);
+			Integer[] result =  mergesortInternal(input, 0, input.length-1);
+			
+			long endTime = System.currentTimeMillis();
+			System.out.println("runtime for sorting: " + (endTime - startTime));		
+			
+			return result;
 		}
 	}
 	private Integer[] mergesortInternal(Integer[] array, int s, int e){
@@ -24,6 +30,7 @@ public class MergeSort {
 			int i=0; int j=0; int k=0;
 			
 			while(i<left.length && j<right.length){
+				
 				if(left[i]<=right[j]){
 					temp[k] = left[i];
 					i++;
@@ -35,10 +42,6 @@ public class MergeSort {
 					
 					int count = left.length-i;
 					
-					if(count<0){
-						System.out.println("count should not be negative: " + count + ".");
-						System.exit(1);
-					}
 					increaseCount(count);
 				}
 			}
@@ -64,6 +67,6 @@ public class MergeSort {
 	
 	public void increaseCount(int increment){
 		inversionCount = inversionCount + increment;
-		System.out.println("inversionCount : " + inversionCount);
+//		System.out.println("inversionCount : " + inversionCount);
 	}
 }

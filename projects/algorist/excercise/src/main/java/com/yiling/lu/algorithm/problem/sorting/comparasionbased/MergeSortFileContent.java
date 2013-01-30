@@ -53,6 +53,7 @@ public class MergeSortFileContent {
 				Integer[] array = mergesortFile.getArray();
 				
 				MergeSort mergesort = new MergeSort();
+				
 				Integer[] sortedArray = mergesort.mergeSort(array);
 				
 //				for (int i = 1; i < sortedArray.length; i++) {
@@ -87,7 +88,7 @@ public class MergeSortFileContent {
 				Integer value = Integer.valueOf(line);
 				input.add(value);
 				
-				System.out.println("value read: " + value);
+//				System.out.println("value read: " + value);
 			}
 		}
 		scanner.close();
