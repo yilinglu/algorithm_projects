@@ -4,7 +4,7 @@ package com.yiling.lu.algorithm.problem.longestLargest.maxSubarray;
  * Solution in CLRS book, divide and conquer chapter. There is a question
  * regarding this in TADM book
  * 
- * The following is a literal implementation after reading the hit on 
+ * The following is a literal implementation after reading the hint on 
  * CLRS page 75, 4.1-5. Result is a much complicated than needed algorithm.
  * The same linear time algorithm is re-implemented in LinearMaxSubarray.java.
  * 
@@ -15,59 +15,51 @@ package com.yiling.lu.algorithm.problem.longestLargest.maxSubarray;
  * 
  */
 public class MaxSubarray {
-
-	/**
-	 * @param input
-	 * @return integer array index 0 is the left boundary of max subarray index
-	 *         1 is the right boundary of max subarray index 3 is the sum of all
-	 *         elements in max subarray
-	 */
-	public static int[] maxSubarray(int[] input) {
-		if(input == null) throw new RuntimeException("Null array is not allowed.");
-
-		if(input.length == 0) return getResult(0,0,0);
-
-		if(input.length == 1){
-			return getResult(0,0,input[0]);
-		}
-		int runningTotal = input[0];
-		int curMax = input[0];
-		int left = 0;
-		int right = 0;
-		
-		for(int i=1; i<input.length; i++){
-			runningTotal = runningTotal + input[i];
+	
+	public int[] maxSubarray(int[] a){
+		if(a == null){
+			throw new NullPointerException("Null input array encountered.");
+		}else if(a.length == 1){
+			return new int[]{0,0,a[0]};
+		}else{
+			int low = 0;
+			int high = 0;
+			int max = a[0];
 			
-			if(i-1 == right){
-				if(input[i]>0){
-					right = i;
-					curMax = curMax + input[i];
-				}
-			}else if(i-1 > right){
-				if(runningTotal > curMax){
-					if(input[i] >= runningTotal){
-						left = i;
-						right = i;
-						curMax = input[i];
-						runningTotal = curMax;
-					}else{
-						right = i;
-						curMax = runningTotal;
+			int rTotal = a[0];
+			
+			int flow=0;
+			int fhigh = 0;
+			int curMax = a[0];
+			
+			for(int i=1; i<a.length; i++){
+				rTotal = rTotal + a[i];
+				if(a[i]<0){
+					curMax = 0;
+				}else{
+					curMax = curMax + a[i];
+					if(a[i-1] < 0){
+						flow = i;
 					}
+					fhigh = i;
+				}
+				
+				if(max<rTotal){
+					max = rTotal;
+					high = i;
+				}
+				
+				if(curMax > max){
+					low = flow;
+					high = fhigh;
+					max = curMax;
+					
+					rTotal = curMax;
 				}
 			}
+			
+			return new int[]{low, high, max};
 		}
-		
-		return getResult(left, right, curMax);
-	}
-	
-	private static int[] getResult(int left, int right, int total){
-		int[] r = new int[3];
-		r[0] = left; // m
-		r[1] = right; // n
-		r[2] = total; // sum		
-		
-		return r;
 	}
 
 }
