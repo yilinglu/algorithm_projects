@@ -16,45 +16,48 @@ package com.yiling.lu.algorithm.problem.longestLargest.maxSubarray;
  */
 public class MaxSubarray {
 	
-	public int[] maxSubarray(int[] a){
+	public static int[] maxSubarray(int[] a){
 		if(a == null){
 			throw new NullPointerException("Null input array encountered.");
-		}else if(a.length == 1){
+		}else if(a.length == 0){
+			return new int[]{0,0,0};
+		}else if(a.length ==1){
 			return new int[]{0,0,a[0]};
+			
 		}else{
 			int low = 0;
 			int high = 0;
 			int max = a[0];
 			
-			int rTotal = a[0];
+			int runningTotal = a[0];
 			
-			int flow=0;
-			int fhigh = 0;
+			int curLow=0;
+			int curHigh = 0;
 			int curMax = a[0];
 			
 			for(int i=1; i<a.length; i++){
-				rTotal = rTotal + a[i];
+				runningTotal = runningTotal + a[i];
 				if(a[i]<0){
 					curMax = 0;
 				}else{
 					curMax = curMax + a[i];
 					if(a[i-1] < 0){
-						flow = i;
+						curLow = i;
 					}
-					fhigh = i;
+					curHigh = i;
 				}
 				
-				if(max<rTotal){
-					max = rTotal;
+				if(max<runningTotal){
+					max = runningTotal;
 					high = i;
 				}
 				
 				if(curMax > max){
-					low = flow;
-					high = fhigh;
+					low = curLow;
+					high = curHigh;
 					max = curMax;
 					
-					rTotal = curMax;
+					runningTotal = curMax;
 				}
 			}
 			

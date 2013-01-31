@@ -1,15 +1,12 @@
 package com.yiling.lu.algorithm.problem.longestLargest.maxSubarray;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
-import com.yiling.lu.algorithm.problem.longestLargest.maxSubarray.LinearMaxSubarray;
-import com.yiling.lu.algorithm.problem.longestLargest.maxSubarray.MaxSubArrayRecursive;
 
 import CtCILibrary.AssortedMethods;
 
@@ -31,78 +28,78 @@ public class MaxSubarrayTest {
 	public void tearDown() throws Exception {
 	}
 
-//	@Test
-//	public void testFindMaxSubArrayOneElement() {
-//		int[] array = {10};
-//		int[] result = LinearMaxSubarray.maxSubarray(array);
-//		
-//		assertEquals(0, result[0]);
-//		assertEquals(0, result[1]);
-//		assertEquals(10, result[2]);
-//	}
-//	
-//	@Test(expected=RuntimeException.class)
-//	public void testFindMaxSubArrayEmptyArray() {
-//		int[] array = {};
-//		int[] result = LinearMaxSubarray.maxSubarray(array);
-//		
-//		assertEquals(0, result[0]);
-//		assertEquals(0, result[1]);
-//		assertEquals(0, result[2]);
-//	}
-//	
-//	@Test(expected=RuntimeException.class)
-//	public void testFindMaxSubArrayNull() {
-//		int[] array = null;
-//		int[] result = LinearMaxSubarray.maxSubarray(array);
-//		
-//		assertEquals(0, result[0]);
-//		assertEquals(0, result[1]);
-//		assertEquals(0, result[2]);
-//	}	
-//	
-//	@Test
-//	public void testFindMaxSubArraySimple() {
-//		int[] array = {10,-1,5};
-//		int[] result = LinearMaxSubarray.maxSubarray(array);
-//		
-//		assertEquals(0, result[0]);
-//		assertEquals(2, result[1]);
-//		assertEquals(14, result[2]);
-//		
-//		int[] result2 = MaxSubArrayRecursive.maxSubarray(array);
-//		
-//		for(int i=0; i<result.length; i++){
-//			assertEquals(" expecting result " + result[i] + ", and result 2 " + result2[i] + " to be equal.", result[i], result2[i]);
-//		}
-//	}	
-//	
-//	@Test
-//	public void testFindMaxSubArraySimple2() {
-//		int[] array = {10,9,1,-1,5};
-//		int[] result = LinearMaxSubarray.maxSubarray(array);
-//		
-//		assertEquals(0, result[0]);
-//		assertEquals(4, result[1]);
-//		assertEquals(24, result[2]);
-//		
-//		int[] result2 = MaxSubArrayRecursive.maxSubarray(array);
-//		
-//		for(int i=0; i<result.length; i++){
-//			assertEquals(" expecting result " + result[i] + ", and result 2 " + result2[i] + " to be equal.", result[i], result2[i]);
-//		}		
-//	}	
-//	@Test
-//	public void testFindMaxSubArraySimple3() {
-//		int[] array = {10,9,1,-20,50};
-//		int[] result = LinearMaxSubarray.maxSubarray(array);
-//		AssortedMethods.printIntArray(result);
-//		
-//		assertEquals(0, result[0]);
-//		assertEquals(4, result[1]);
-//		assertEquals(50, result[2]);
-//	}
-//	
+	@Test
+	public void testFindMaxSubArrayOneElement() {
+		int[] array = {10};
+		int[] result = MaxSubarray.maxSubarray(array);
+		
+		assertEquals(0, result[0]);
+		assertEquals(0, result[1]);
+		assertEquals(10, result[2]);
+	}
+	
+	@Test
+	public void testFindMaxSubArrayEmptyArray() {
+		int[] array = {};
+		int[] result = MaxSubarray.maxSubarray(array);
+		
+		assertEquals(0, result[0]);
+		assertEquals(0, result[1]);
+		assertEquals(0, result[2]);
+	}
+	
+	@Test(expected=NullPointerException.class)
+	public void testFindMaxSubArrayNull() {
+		int[] array = null;
+		int[] result = MaxSubarray.maxSubarray(array);
+		
+		assertEquals(0, result[0]);
+		assertEquals(0, result[1]);
+		assertEquals(0, result[2]);
+	}	
+	
+	@Test
+	public void testFindMaxSubArraySimple() {
+		int[] array = {10,-1,5};
+		int[] result = MaxSubarray.maxSubarray(array);
+		
+		assertEquals(0, result[0]);
+		assertEquals(2, result[1]);
+		assertEquals(14, result[2]);
+		
+		int[] result2 = MaxSubArrayRecursive.maxSubarray(array);
+		
+		for(int i=0; i<result.length; i++){
+			assertEquals(" expecting result " + result[i] + ", and result 2 " + result2[i] + " to be equal.", result[i], result2[i]);
+		}
+	}	
+	
+	@Test
+	public void testFindMaxSubArraySimple2() {
+		int[] array = {10,9,1,-1,5};
+		int[] result = MaxSubarray.maxSubarray(array);
+		
+		assertEquals(0, result[0]);
+		assertEquals(4, result[1]);
+		assertEquals(24, result[2]);
+		
+		int[] result2 = MaxSubArrayRecursive.maxSubarray(array);
+		
+		for(int i=0; i<result.length; i++){
+			assertEquals(" expecting result " + result[i] + ", and result 2 " + result2[i] + " to be equal.", result[i], result2[i]);
+		}		
+	}	
+	@Test
+	public void testFindMaxSubArraySimple3() {
+		int[] array = {10,9,1,-20,50};
+		int[] result = MaxSubarray.maxSubarray(array);
+		AssortedMethods.printIntArray(result);
+		
+		assertEquals(0, result[0]);
+		assertEquals(4, result[1]);
+		assertEquals(50, result[2]);
+	}
+	
 //	@Test
 //	public void testFindMaxSubArray() {
 //		int[] array = {10,9,1,-20,50};
