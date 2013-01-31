@@ -4,16 +4,10 @@ package com.yiling.lu.algorithm.problem.longestLargest.maxSubarray;
  * The two well know algorithms for solving maximum subarray problem:
  * 1. Divide and Conquer
  * 2. Linear scanning
- * 
- * Among all the literatures, people have failed to point out an important
- * subtlety between these two approaches. That is Linear scanning has the 
- * assumption/definition of max sum is Zero when all elements are negative. Without
- * this assumption, linear scanning algorithm does not work. Divide and Conquer
- * does not need this assumption, given an all negative array, Divide and Conquer
- * will pick out the largest negative number as the max sub array, which is a subarray
- * in its true spirit of subarray.
- * 
- * Plus, the linear scanning cannot find out the start and end index of the max subarray.
+ *
+ * This class implements the linear scanning algorithm, the function only
+ * calculate the max sum.
+ *
  * 
  * @author yilingfamily
  *

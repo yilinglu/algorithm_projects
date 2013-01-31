@@ -100,76 +100,78 @@ public class MaxSubarrayTest {
 		assertEquals(50, result[2]);
 	}
 	
-//	@Test
-//	public void testFindMaxSubArray() {
-//		int[] array = {10,9,1,-20,50};
-//		int[] result = LinearMaxSubarray.maxSubarray(array);
-//		AssortedMethods.printIntArray(result);
-//		
-//		assertEquals(0, result[0]);
-//		assertEquals(4, result[1]);
-//		assertEquals(50, result[2]);
-//		
-//		int[] result2 = MaxSubArrayRecursive.maxSubarray(array);
-//		AssortedMethods.printIntArray(result2);
-//
-//		int total1 = calcTotal(array, result[0], result[1]);
-//		int total2 = calcTotal(array, result2[0], result2[1]);
-//		
-//		assertEquals("the max subarray sum should be the same from different algorithm, start and end index might not match as there could be multiple max subarray", 
-//				total1, total2);		
-//	}	
-//	
-//	@Test
-//	public void testFindMaxSubArray2() {
-//		int[] array = {10,9,1,-2,50};
-//		int[] result = LinearMaxSubarray.maxSubarray(array);
-//		
-//		assertEquals(0, result[0]);
-//		assertEquals(68, result[2]);
-//		assertEquals(4, result[1]);
-//	}	
-//	
-//	@Test
-//	public void testFindMaxSubArray3() {
-//		int[] array = {10,9,1,-2,50, -1, 9, -2,-5, 8};
-//		int[] result = LinearMaxSubarray.maxSubarray(array);
-//		
-//		assertEquals(0, result[0]);
-//		assertEquals(77, result[2]);
-//		assertEquals(9, result[1]);
-//	}
-//	
-//	@Test
-//	public void testFindMaxSubArray4() {
-//		int[] array = {10,9,1,-2,50, -1, 9, -2,-5, 8, -500,600};
-//		int[] result = LinearMaxSubarray.maxSubarray(array);
-//		
-//		assertEquals(11, result[0]);
-//		assertEquals(600, result[2]);
-//		assertEquals(11, result[1]);
-//	}	
-//	
-//	@Test
-//	public void testFindMaxSubArray5() {
-//		int[] array = {77,-500,600, -600, 50, 550};
-//		int[] result = LinearMaxSubarray.maxSubarray(array);
-//		AssortedMethods.printIntArray(result);
-//		
-//		assertEquals(2, result[0]);
-//		assertEquals(2, result[1]);
-//		assertEquals(600, result[2]);
-//		
-//		int[] result2 = MaxSubArrayRecursive.maxSubarray(array);
-//		AssortedMethods.printIntArray(result2);
-//		
-//		int total1 = calcTotal(array, result[0], result[1]);
-//		int total2 = calcTotal(array, result2[0], result2[1]);
-//		
-//		assertEquals("the max subarray sum should be the same from different algorithm, start and end index might not match as there could be multiple max subarray", 
-//				total1, total2);
-//		
-//	}	
+	@Test
+	public void testFindMaxSubArray() {
+		int[] array = {10,9,1,-20,50};
+		int[] result = MaxSubarray.maxSubarray(array);
+		AssortedMethods.printIntArray(result);
+		
+		assertEquals(0, result[0]);
+		assertEquals(4, result[1]);
+		assertEquals(50, result[2]);
+		
+		int[] result2 = MaxSubArrayRecursive.maxSubarray(array);
+		AssortedMethods.printIntArray(result2);
+
+		int total1 = calcTotal(array, result[0], result[1]);
+		int total2 = calcTotal(array, result2[0], result2[1]);
+		
+		assertEquals("the max subarray sum should be the same from different algorithm, start and end index might not match as there could be multiple max subarray", 
+				total1, total2);		
+	}	
+	
+	@Test
+	public void testFindMaxSubArray2() {
+		int[] array = {10,9,1,-2,50};
+		int[] result = MaxSubarray.maxSubarray(array);
+		
+		assertEquals(0, result[0]);
+		assertEquals(4, result[1]);
+		assertEquals(68, result[2]);
+	}	
+	
+	@Test
+	public void testFindMaxSubArray3() {
+		int[] array = {10,9,1,-2,50, -1, 9, -2,-5, 8};
+		int[] result = MaxSubarray.maxSubarray(array);
+		
+		assertEquals(0, result[0]);
+		assertEquals(77, result[2]);
+		assertEquals(9, result[1]);
+		
+		AssortedMethods.printIntArray(result);
+	}
+	
+	@Test
+	public void testFindMaxSubArray4() {
+		int[] array = {10,9,1,-2,50, -1, 9, -2,-5, 8, -500,600};
+		int[] result = MaxSubarray.maxSubarray(array);
+		
+		assertEquals(11, result[0]);
+		assertEquals(600, result[2]);
+		assertEquals(11, result[1]);
+	}	
+	
+	@Test
+	public void testFindMaxSubArray5() {
+		int[] array = {77,-500,600, -600, 50, 550};
+		int[] result = MaxSubarray.maxSubarray(array);
+		AssortedMethods.printIntArray(result);
+		
+		assertEquals(2, result[0]);
+		assertEquals(2, result[1]);
+		assertEquals(600, result[2]);
+		
+		int[] result2 = MaxSubArrayRecursive.maxSubarray(array);
+		AssortedMethods.printIntArray(result2);
+		
+		int total1 = calcTotal(array, result[0], result[1]);
+		int total2 = calcTotal(array, result2[0], result2[1]);
+		
+		assertEquals("the max subarray sum should be the same from different algorithm, start and end index might not match as there could be multiple max subarray", 
+				total1, total2);
+		
+	}	
 	
 	@Test
 	public void testFindMaxSubArray6() {
@@ -197,9 +199,11 @@ public class MaxSubarrayTest {
 	@Test
 	public void testFindMaxSubArrayLinear1() {
 		int[] array = {1,2,-50,1,2,1};
-		int result = LinearMaxSubarray.maxSubarray(array);
+		int[] result = MaxSubarray.maxSubarray(array);
 		
-		assertEquals(4, result);
+		assertEquals(3, result[0]);
+		assertEquals(5, result[1]);
+		assertEquals(4, result[2]);
 	}	
 	
 	@Test

@@ -5,10 +5,10 @@ package com.yiling.lu.algorithm.problem.longestLargest.maxSubarray;
  * regarding this in TADM book
  * 
  * The following is a literal implementation after reading the hint on 
- * CLRS page 75, 4.1-5. Result is a much complicated than needed algorithm.
- * The same linear time algorithm is re-implemented in LinearMaxSubarray.java.
+ * CLRS page 75, 4.1-5. 
  * 
- * The result of this implementation is correct, but the impl is way too complicated.
+ * This implementation result in linear run time, it calculates both the sum
+ * of the max subarray, it also return the start and end index of the max subarray.
  * 
  * 
  * @author ylu
@@ -16,6 +16,11 @@ package com.yiling.lu.algorithm.problem.longestLargest.maxSubarray;
  */
 public class MaxSubarray {
 	
+	/**
+	 * @param a argument array
+	 * @return value at index 0 of the array is the starting index of the max subarray,
+	 * value at index 1 is the end index, value at index 2 is the sum of the max subarray.
+	 */
 	public static int[] maxSubarray(int[] a){
 		if(a == null){
 			throw new NullPointerException("Null input array encountered.");
