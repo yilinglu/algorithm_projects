@@ -98,5 +98,75 @@ public class TestFindProductsArray {
 		assertEquals(10, result[1]);
 		assertEquals(2, result.length);
 	}	
+	
+	@Test
+	public void testFindProdArray1() {
+		int[] x = {10, 2};
+		int[] result = FindProductsArray.findProdArray(x);
+		
+		AssortedMethods.printIntArray(result);
+
+		assertEquals(2, result[0]);		
+		assertEquals(10, result[1]);
+		assertEquals(2, result.length);
+	}	
+	
+	@Test
+	public void testFindProdArrayEdgeCase1() {
+		int[] x = {10};
+		int[] result = FindProductsArray.findProdArray(x);
+		
+		AssortedMethods.printIntArray(result);
+
+		assertEquals(0, result[0]);		
+		assertEquals(1, result.length);
+	}
+	
+	@Test
+	public void testFindProdArrayEdgeCase2() {
+		int[] x = {};
+		int[] result = FindProductsArray.findProdArray(x);
+		
+		AssortedMethods.printIntArray(result);
+
+		assertEquals(0, result.length);
+	}
+	
+	@Test
+	public void testFindProdArrayEdgeCase3() {
+		int[] x = null;
+		int[] result = FindProductsArray.findProdArray(x);
+
+		assertNull(result);
+	}
+	
+	
+	@Test
+	public void testFindProdArray2() {
+		int[] x = {10, 2, 3};
+		int[] result = FindProductsArray.findProdArray(x);
+		
+		AssortedMethods.printIntArray(result);
+
+		assertEquals(6, result[0]);		
+		assertEquals(30, result[1]);
+		assertEquals(20, result[2]);
+		assertEquals(3, result.length);
+	}	
+	
+	@Test
+	public void testFindProdArray3() {
+		int[] x = {10, 2, 3, 8, 1};
+		int[] result = FindProductsArray.findProdArray(x);
+		
+		AssortedMethods.printIntArray(result);
+
+		assertEquals(48, result[0]);		
+		assertEquals(240, result[1]);
+		assertEquals(160, result[2]);
+		assertEquals(60, result[3]);
+		assertEquals(480, result[4]);
+		assertEquals(5, result.length);
+	}	
 
 }
