@@ -47,21 +47,6 @@ public class TestQuestion532 {
 	}
 	
 	@Test
-	public void testFindithNodeStatic() {
-		int[] array = {1,2,3};
-		TreeNode root = AssortedMethods.createTreeFromArray(array);
-		
-		BTreePrinter.printNode(root);
-		TreeNode found = null;
-		
-		Question532.findithNodeStatic(root, found, 3);
-		
-		Assert.assertNotNull(found);
-		
-		Assert.assertEquals(3, found.data);
-	}	
-	
-	@Test
 	public void testFindithNode2() {
 		int[] array = {1,2,3};
 		TreeNode root = AssortedMethods.createTreeFromArray(array);
@@ -77,7 +62,6 @@ public class TestQuestion532 {
 		
 		Assert.assertEquals(2, found.data);
 	}	
-
 	@Test
 	public void testFindithNode1() {
 		int[] array = {1,2,3};

@@ -33,18 +33,4 @@ public class Question532 {
 		return foundNode;
 	}
 	
-	
-	public TreeNode findithNodeAlt(TreeNode root){
-		if(root == null || counter ==0){
-			return root;
-		}else{
-			TreeNode node = findithNodeAlt(root.left);
-			counter--;
-			if(counter == 0){
-				return node;
-			}else{
-				return findithNodeAlt(root.right);
-			}
-		}
-	}	
 }
