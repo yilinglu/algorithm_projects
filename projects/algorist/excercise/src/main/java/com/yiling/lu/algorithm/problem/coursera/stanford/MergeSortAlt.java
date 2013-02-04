@@ -1,4 +1,4 @@
-package com.yiling.lu.algorithm.problem.sorting.comparasionbased;
+package com.yiling.lu.algorithm.problem.coursera.stanford;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -6,6 +6,8 @@ import java.io.FileReader;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import com.yiling.lu.algorithm.problem.sorting.comparasionbased.MergeSort;
 
 /**
  * Coursera, Stanford Online Algorithm: Design and Analysis, Part 1
@@ -27,13 +29,13 @@ import java.util.Scanner;
  * @author ylu
  * 
  */
-public class MergeSortFileContent {
+public class MergeSortAlt {
 	private ArrayList<Integer> input = new ArrayList<Integer>();
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		MergeSortFileContent mergesortFile = new MergeSortFileContent();
+		MergeSortAlt mergesortFile = new MergeSortAlt();
 		
 		if(args.length != 1){
 			
