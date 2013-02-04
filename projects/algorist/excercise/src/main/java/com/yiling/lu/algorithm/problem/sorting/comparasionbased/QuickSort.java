@@ -24,10 +24,18 @@ public class QuickSort {
 		}
 	}
 	
+	/**
+	 * @param array
+	 * @param start
+	 * @param end
+	 * @return
+	 */
 	private static <E> int partition(Comparable<E>[] array, int start, int end){
 		Comparable<E> pivot = array[start];
 		int low = start;
 		
+		// low is always pointing at the right most element of the left part of the array 
+		// , which is the part that is less than or equal to the pivot value.
 		for(int high=low+1; high<=end; high++){
 			
 			if(array[high].compareTo((E)pivot)<0){ 
