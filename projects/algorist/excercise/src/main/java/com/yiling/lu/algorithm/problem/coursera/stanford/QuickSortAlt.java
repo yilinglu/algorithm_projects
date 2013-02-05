@@ -63,6 +63,11 @@ public class QuickSortAlt<E> {
 	 */
 	private int partition(Comparable<E>[] array, int start, int end) {
 		comps = comps + (end - start);
+		
+		int m = pickIndexOfMedian(array, start, end);
+		
+		swap(array,start,m);
+		
 		Comparable<E> pivot = array[start];
 		int low = start;
 
@@ -101,5 +106,48 @@ public class QuickSortAlt<E> {
 
 	public int getComparisonCount() {
 		return comps;
+	}
+	
+	/**
+	 * @param input
+	 * @param left
+	 * @param right
+	 * @return one of left, right and (left+right)/2
+	 */
+	public int pickIndexOfMedian(Comparable<E>[] input, int left, int right){
+		int middle = (left+right)/2;
+		
+		
+		if(input[left].compareTo((E) input[middle])>0){
+			if(input[right].compareTo((E) input[middle])>0){
+				if(input[left].compareTo((E) input[right])>0){
+					return right;
+				}else{
+					return left;
+				}
+			}
+		}
+		
+		if(input[middle].compareTo((E) input[left])>0){
+			if(input[right].compareTo((E) input[left])>0){
+				if(input[middle].compareTo((E) input[right])>0){
+					return right;
+				}else{
+					return middle;
+				}
+			}
+		}	
+		
+		if(input[left].compareTo((E) input[right])>0){
+			if(input[middle].compareTo((E) input[right])>0){
+				if(input[middle].compareTo((E) input[left])>0){
+					return left;
+				}else{
+					return middle;
+				}
+			}
+		}	
+		
+		return middle;
 	}
 }
