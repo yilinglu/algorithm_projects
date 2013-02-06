@@ -34,7 +34,7 @@ public class PermutationTest {
 
 	@Test
 	public void testPermutate() {
-		char[] input = {'a', 'b'};
+		char[] input = {'a', 'b', 'c'};
 		List<String> results = Permutation.permutate(input);
 		
 		assertNotNull(results);

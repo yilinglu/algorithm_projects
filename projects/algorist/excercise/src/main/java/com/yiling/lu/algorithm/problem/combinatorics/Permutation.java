@@ -15,24 +15,28 @@ public class Permutation {
 					String result = start + array[k];
 					
 					doPermutate(array, selected, solution, result, ++curLevel, maxLevel);
-					selected[k] = false;
 				}
 			}
 		}else{
 			solution.add(start);
-			selected[curLevel-1] = false;
 		}
 	}
 	
 	public static List<String> permutate(char[] array){
 		List<String> solution = new ArrayList<String>();
-		boolean[] selected = new boolean[array.length];
 		
-		String start = "";
-		int max = array.length;
 		
 		//System.out.println("start length " + start.length());
-		doPermutate(array, selected, solution, start, 0, max);
+		
+		for(int i=0; i<array.length; i++){
+			boolean[] selected = new boolean[array.length];
+			String start = new Character(array[i]).toString();
+			selected[i] = true;
+			
+			int max = array.length;
+			doPermutate(array, selected, solution, start, 0, max-1);
+			
+		}
 		
 		return solution;
 	}
