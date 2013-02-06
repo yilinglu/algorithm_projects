@@ -1,9 +1,18 @@
 package com.yiling.lu.algorithm.util;
 
+import java.util.Collection;
+import java.util.Iterator;
+
 import junit.framework.Assert;
 
 public class AssortedUtils {
 
+	public static <E> void printCollection(Collection<E> things){
+		Iterator<E> it = things.iterator();
+		while(it.hasNext()){
+			System.out.println(it.next());
+		}
+	}
 	public static void verifyOder(int[] input, boolean ascending) {
 		if (input == null || input.length < 2)
 			return;
