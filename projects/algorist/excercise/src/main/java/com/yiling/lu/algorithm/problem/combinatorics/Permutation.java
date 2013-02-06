@@ -5,20 +5,28 @@ import java.util.List;
 
 public class Permutation {
 
-	private static void doPermutate(char[] array, boolean[] selected, List<String> solution, String start, int curLevel, int maxLevel){
+	private static void doPermutate(char[] array, boolean[] selected, List<String> solution, StringBuffer buffer, int curLevel, int maxLevel){
 		if(curLevel < maxLevel){
 			
 			for(int k=0; k<array.length; k++){
 				
 				if(!selected[k]){
 					selected[k] = true;
-					String result = start + array[k];
+					buffer.append(array[k]);
 					
-					doPermutate(array, selected, solution, result, ++curLevel, maxLevel);
+					doPermutate(array, selected, solution, buffer, ++curLevel, maxLevel);
+					selected[k] = false;
+					curLevel--;
+//					System.out.println("before setlength: " + buffer.length());
+//					System.out.println("before setlength content: " + buffer.toString());
+					buffer.setLength(buffer.length()-1);
+//					System.out.println("after setlength: " + buffer.length());
+//					System.out.println("after setlength content: " + buffer.toString());
+//					System.out.println();
 				}
 			}
 		}else{
-			solution.add(start);
+			solution.add(buffer.toString());
 		}
 	}
 	
@@ -28,15 +36,12 @@ public class Permutation {
 		
 		//System.out.println("start length " + start.length());
 		
-		for(int i=0; i<array.length; i++){
 			boolean[] selected = new boolean[array.length];
-			String start = new Character(array[i]).toString();
-			selected[i] = true;
+			StringBuffer start = new StringBuffer();
 			
 			int max = array.length;
-			doPermutate(array, selected, solution, start, 0, max-1);
+			doPermutate(array, selected, solution, start, 0, max);
 			
-		}
 		
 		return solution;
 	}

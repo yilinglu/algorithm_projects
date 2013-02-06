@@ -34,8 +34,10 @@ public class PermutationTest {
 
 	@Test
 	public void testPermutate() {
-		char[] input = {'a', 'b', 'c'};
-		List<String> results = Permutation.permutate(input);
+		char[] input = {'a'};
+		char[] input2 = {'a', 'b'};
+		char[] input3 = {'a', 'b', 'c'};
+		List<String> results = Permutation.permutate(input3);
 		
 		assertNotNull(results);
 		assertTrue(!results.isEmpty());
