@@ -1,6 +1,6 @@
 package com.yiling.lu.algorithm.problem.combinatorics;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
@@ -10,11 +10,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.yiling.lu.algorithm.util.AssortedUtils;
-
-import CtCILibrary.AssortedMethods;
-
-public class PermutationTest {
+public class CombinationTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -33,18 +29,31 @@ public class PermutationTest {
 	}
 
 	@Test
-	public void testPermutate() {
+	public void testDoComboSize() {
 		char[] input = {'a'};
 		char[] input2 = {'a', 'b'};
 		char[] input3 = {'a', 'b', 'c'};
 		char[] input4 = {'a', 'b', 'c', 'd', 'e'};
-		List<String> results = Permutation.permutate(input4);
 		
-		assertNotNull(results);
-		assertTrue(!results.isEmpty());
+		char[] array = input4;
+		int setSize = 2;
+		List<String> list = Combination.doComboSize(array, setSize);
+		int actual = list.size();
 		
-		AssortedUtils.printCollection(results);
+		int expected = Combination.calcCombo(array.length, setSize);
+		
+		assertEquals(expected, actual);
 		
 	}
 
+	@Test
+	public void testTotalCombo() {
+	}
+
+	@Test
+	public void testCalcCombo(){
+		int actual = Combination.calcCombo(10, 2);
+		assertEquals(45, actual);
+	}
+	
 }
