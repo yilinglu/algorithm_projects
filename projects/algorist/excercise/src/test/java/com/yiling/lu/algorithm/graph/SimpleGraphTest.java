@@ -30,9 +30,9 @@ public class SimpleGraphTest {
 	public void testInsertEdge() {
 		SimpleGraph graph = new SimpleGraph();
 		graph.insertEdge(1, 2, false);
-//		graph.insertEdge(1, 3, false);
-//		graph.insertEdge(4, 2, false);
-//		graph.insertEdge(4, 3, false);
+		graph.insertEdge(1, 3, false);
+		graph.insertEdge(4, 2, false);
+		graph.insertEdge(4, 3, false);
 		
 		SimpleGraph.printGraph(graph);
 		

@@ -1,48 +1,42 @@
 package com.yiling.lu.algorithm.graph;
 
-
-
 public class SimpleGraph {
 	public static final int MAXV = 1000;
-	
+
 	public GraphNode[] edges = new GraphNode[MAXV];
 	public int[] degree = new int[MAXV];
 	public int nvertices = 0;
 	public int nedges = 0;
 	boolean directed;
-	
-	public void insertEdge(int x, int y, boolean directed){
+
+	public void insertEdge(int x, int y, boolean directed) {
 		GraphNode p = new GraphNode();
 		p.y = y;
 
 		p.next = edges[x];
 		edges[x] = p;
-		
+
 		degree[x]++;
-		
-		if(!directed){
+
+		if (!directed) {
 			insertEdge(y, x, true);
-		}else{
+		} else {
 			nedges++;
 		}
-		
+
 	}
-	
-	public static void printGraph(SimpleGraph g){
-		for(int i=0; i<g.edges.length; i++){
+
+	public static void printGraph(SimpleGraph g) {
+		for (int i = 0; i < g.edges.length; i++) {
 			GraphNode node = g.edges[i];
-			if(node!=null){
-				System.out.println();
-			}
-			while(node != null){
-				System.out.print(node.y);
-				node = node.next;
-				
-				if(node != null){
-					System.out.print(",");
+			if (node != null) {
+				while (node != null) {
+					System.out.println(i + "->" + node.y);
+					node = node.next;
 				}
+
 			}
 		}
 	}
-			
+
 }
