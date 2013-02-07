@@ -1,6 +1,5 @@
 package com.yiling.lu.algorithm.graph;
 
-import java.util.List;
 
 
 public class SimpleGraph {
@@ -12,34 +11,37 @@ public class SimpleGraph {
 	public int nedges = 0;
 	boolean directed;
 	
-	public void insertEdge(SimpleGraph g, int x, int y, boolean directed){
+	public void insertEdge(int x, int y, boolean directed){
 		GraphNode p = new GraphNode();
 		p.y = y;
+
+		p.next = edges[x];
 		edges[x] = p;
 		
-		
-		g.degree[x]++;
+		degree[x]++;
 		
 		if(!directed){
-			insertEdge(g, y, x, true);
+			insertEdge(y, x, true);
 		}else{
-			g.nedges++;
+			nedges++;
 		}
 		
 	}
 	
-	public void printGraph(SimpleGraph g){
-		for(int i=0; i<edges.length; i++){
-			GraphNode p = edges[i];
-			while(p != null){
-				System.out.print(p.y);
-				p = p.next;
+	public static void printGraph(SimpleGraph g){
+		for(int i=0; i<g.edges.length; i++){
+			GraphNode node = g.edges[i];
+			if(node!=null){
+				System.out.println();
+			}
+			while(node != null){
+				System.out.print(node.y);
+				node = node.next;
 				
-				if(p != null){
+				if(node != null){
 					System.out.print(",");
 				}
 			}
-			System.out.println();
 		}
 	}
 			
