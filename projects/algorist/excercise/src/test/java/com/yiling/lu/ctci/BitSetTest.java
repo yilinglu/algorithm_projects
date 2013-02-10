@@ -66,7 +66,7 @@ public class BitSetTest {
 		assertEquals("10011100", actual);
 	}
 	
-	public int convertToInt(String binary){
+	public int binaryToDecimal(String binary){
 		int x = 0;
 		for(int i=0; i<binary.length(); i++){
 			x = x<<1;
@@ -95,7 +95,7 @@ public class BitSetTest {
 	public void testConvertToInt(){
 		String bits = "00011111";
 		//1011001
-		int actual = convertToInt(bits);
+		int actual = binaryToDecimal(bits);
 		assertEquals(32, actual);
 	}
 	
@@ -103,34 +103,34 @@ public class BitSetTest {
 	public void testConvertToInt5(){
 		String bits = "10000000";
 		//1011001
-		int actual = convertToInt(bits);
+		int actual = binaryToDecimal(bits);
 		assertEquals(128, actual);
 	}	
 	
 	@Test
 	public void testConvertToInt3(){
 		String bits = "1011001";
-		int actual = convertToInt(bits);
+		int actual = binaryToDecimal(bits);
 		assertEquals(89, actual);
 	}	
 	
 	@Test
 	public void testConvertToInt4(){
 		String bits = "10011011";
-		int actual = convertToInt(bits);
+		int actual = binaryToDecimal(bits);
 		assertEquals(155, actual);
 	}	
 	
 	@Test
 	public void testConvertToInt2(){
 		String bits = "11100000";
-		int actual = convertToInt(bits);
+		int actual = binaryToDecimal(bits);
 		assertEquals(224, actual);
 		
-		System.out.println(convertToInt("11100000"));
-		System.out.println(convertToInt("11000000"));
-		System.out.println(convertToInt("10000000"));
-		System.out.println(convertToInt("00000000"));
+		System.out.println(binaryToDecimal("11100000"));
+		System.out.println(binaryToDecimal("11000000"));
+		System.out.println(binaryToDecimal("10000000"));
+		System.out.println(binaryToDecimal("00000000"));
 	}	
 
 }
