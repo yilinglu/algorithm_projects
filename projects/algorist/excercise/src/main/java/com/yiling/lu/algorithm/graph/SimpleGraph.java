@@ -1,9 +1,15 @@
 package com.yiling.lu.algorithm.graph;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SimpleGraph {
 	public static final int MAXV = 1000;
 
 	public GraphNode[] edges = new GraphNode[MAXV];
+//	public List<GraphNode>[] adjacencyList = new ArrayList[MAXV];
+//	
+//	public List<GraphNode>[] adjacencyList2 = new List[MAXV];
 	public int[] degree = new int[MAXV];
 	public int nvertices = 0;
 	public int nedges = 0;
@@ -12,7 +18,6 @@ public class SimpleGraph {
 	public void insertEdge(int x, int y, boolean directed) {
 		GraphNode p = new GraphNode();
 		p.y = y;
-
 		p.next = edges[x];
 		edges[x] = p;
 
