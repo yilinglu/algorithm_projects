@@ -18,6 +18,9 @@ import java.lang.reflect.Array;
  */
 public class BinaryHeap<T extends Comparable<T>> {
 	private T[] array;
+	
+	// heapSize - 1 is the last valid index in the heap
+	// We will only use 0 to heapSize -1 portion of the array as heap.
 	private int heapSize = 0;
 	
 	public BinaryHeap(T[] a) {
@@ -69,9 +72,11 @@ public class BinaryHeap<T extends Comparable<T>> {
 		
 		int maxIndex = p;
 		
-		for(int i = left; i< heapSize; i++){
-			if(a[i].compareTo(a[maxIndex]) > 0){
-				maxIndex = i;
+		for(int i = 0; i<=1; i++){
+			if(left+i < heapSize){
+				if(a[left+i].compareTo(a[maxIndex]) > 0){
+					maxIndex = left+i;
+				}
 			}
 		}
 		

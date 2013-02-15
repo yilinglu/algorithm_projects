@@ -110,11 +110,6 @@ public class HeapTest {
 
 
 	@Test
-	public void testFindMax() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	public void testDeleteMax() {
 		Integer[] input = {100,-2,0,50,300,-3,-6,50,30,66,90};
 
