@@ -13,6 +13,12 @@ public class AssortedUtils {
 			System.out.println(it.next());
 		}
 	}
+	
+	public static void printArray(char[] array){
+		for(int i=0; i<array.length; i++){
+			System.out.print(array[i] + ",");
+		}
+	}
 	public static void verifyOder(int[] input, boolean ascending) {
 		if (input == null || input.length < 2)
 			return;
