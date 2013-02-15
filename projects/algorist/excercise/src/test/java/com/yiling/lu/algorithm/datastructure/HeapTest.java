@@ -30,7 +30,7 @@ public class HeapTest {
 	
 	@Test(expected=RuntimeException.class)
 	public void testInsert() {
-		BinaryHeap<Integer> heap = new BinaryHeap<Integer>(Integer.class, 0);
+		Heap<Integer> heap = new Heap<Integer>(Integer.class, 0);
 		int len = heap.getArray().length;
 		
 		System.out.println("initial array length: " + len);
@@ -41,7 +41,7 @@ public class HeapTest {
 	
 	@Test(expected=RuntimeException.class)
 	public void testInsert2() {
-		BinaryHeap<Integer> heap = new BinaryHeap<Integer>(Integer.class, 1);
+		Heap<Integer> heap = new Heap<Integer>(Integer.class, 1);
 		int len = heap.getArray().length;
 		
 		System.out.println("initial array length: " + len);
@@ -52,7 +52,7 @@ public class HeapTest {
 	}
 	@Test
 	public void testInsert3() {
-		BinaryHeap<Integer> heap = new BinaryHeap<Integer>(Integer.class, 10);
+		Heap<Integer> heap = new Heap<Integer>(Integer.class, 10);
 		int len = heap.getArray().length;
 		
 		System.out.println("initial array length: " + len);
@@ -85,7 +85,7 @@ public class HeapTest {
 	@Test
 	public void testBuildHeapSimple() {
 		Integer[] input = {100,-2,0,500};
-		BinaryHeap<Integer> heap = new BinaryHeap<Integer>(input);
+		Heap<Integer> heap = new Heap<Integer>(input);
 
 		
 		heap.buildHeap();
@@ -98,7 +98,7 @@ public class HeapTest {
 	@Test
 	public void testBuildHeap() {
 		Integer[] input = {100,-2,0,50,300,-3,-6,50,30,66,90};
-		BinaryHeap<Integer> heap = new BinaryHeap<Integer>(input);
+		Heap<Integer> heap = new Heap<Integer>(input);
 
 		
 		heap.buildHeap();
@@ -113,7 +113,7 @@ public class HeapTest {
 	public void testDeleteMax() {
 		Integer[] input = {100,-2,0,50,300,-3,-6,50,30,66,90};
 
-		BinaryHeap<Integer> heap = new BinaryHeap<Integer>(input);
+		Heap<Integer> heap = new Heap<Integer>(input);
 
 		
 		heap.buildHeap();
@@ -134,7 +134,7 @@ public class HeapTest {
 	public void testDeleteMax2() {
 		Integer[] input = {1, 3, 2};
 
-		BinaryHeap<Integer> heap = new BinaryHeap<Integer>(input);
+		Heap<Integer> heap = new Heap<Integer>(input);
 
 		
 		heap.buildHeap();

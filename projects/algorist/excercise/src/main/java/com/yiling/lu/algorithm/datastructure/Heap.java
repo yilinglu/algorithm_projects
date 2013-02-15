@@ -16,19 +16,19 @@ import java.lang.reflect.Array;
  * 
  * @param <T>
  */
-public class BinaryHeap<T extends Comparable<T>> {
+public class Heap<T extends Comparable<T>> {
 	private T[] array;
 	
 	// heapSize - 1 is the last valid index in the heap
 	// We will only use 0 to heapSize -1 portion of the array as heap.
 	private int heapSize = 0;
 	
-	public BinaryHeap(T[] a) {
+	public Heap(T[] a) {
 		array = a;
 		heapSize = a.length;
 	}
 
-	public BinaryHeap(Class<T> clazz, int initialCapacity) {
+	public Heap(Class<T> clazz, int initialCapacity) {
 		array = (T[])Array.newInstance(clazz, initialCapacity);
 	}	
 	
