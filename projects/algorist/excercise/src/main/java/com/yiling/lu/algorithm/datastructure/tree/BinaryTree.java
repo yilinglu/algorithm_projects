@@ -66,6 +66,12 @@ public class BinaryTree {
 		inorder(root.right);
 	}
 	
+	
+	public static TreeNode kthSmallest(TreeNode root, int k){
+		TreeNode result = kthSmallestHelper(root, k, new Counter());
+		return result;
+	}
+	
 	public static TreeNode kthSmallestHelper(TreeNode root, int k, Counter count) {
 		if (root == null)
 			return root;
@@ -81,6 +87,30 @@ public class BinaryTree {
 		
 		return temp;
 	}
+	
+	
+	public static TreeNode kthSmallestWithPrimitiveType(TreeNode root, Integer k){
+		TreeNode result = kthSmallestWithPrimitiveTypeHelper(root, k, 0);
+		return result;
+	}	
+	
+	private static TreeNode kthSmallestWithPrimitiveTypeHelper(TreeNode root, int k, int count) {
+		int localCount = count;
+		if (root == null)
+			return root;
+		TreeNode temp = kthSmallestWithPrimitiveTypeHelper(root.left, k, count);
+		
+		if(temp == null){
+			localCount++;
+			count++;
+			if (localCount == k) {
+				return root;
+			}
+			temp = kthSmallestWithPrimitiveTypeHelper(root.right, k, localCount);
+		}
+		
+		return temp;
+	}	
 	
 	public static TreeNode kthMaxInternal(TreeNode root, int k, int count){
 		if(root==null) return root;
@@ -98,32 +128,7 @@ public class BinaryTree {
 	
 	public static TreeNode kthMax(TreeNode root, int k){
 		return kthMaxInternal(root, k, 0);
-	}
-	
-	public static TreeNode kthSmallestWithPrimitiveType(TreeNode root, Integer k){
-		TreeNode result = kthSmallestWithPrimitiveTypeHelper(root, k, new Counter());
-		return result;
 	}	
-	
-	private static TreeNode kthSmallestWithPrimitiveTypeHelper(TreeNode root, int k, Counter count) {
-		if (root == null)
-			return root;
-		TreeNode temp = kthSmallestWithPrimitiveTypeHelper(root.left, k, count);
-		
-		if(temp == null){
-			count.increment();
-			if (count.getCnt() == k) {
-				return root;
-			}
-			temp = kthSmallestWithPrimitiveTypeHelper(root.right, k, count);
-		}
-		
-		return temp;
-	}	
-	
-	public static TreeNode kthSmallest(TreeNode root, int k){
-		TreeNode result = kthSmallestHelper(root, k, new Counter());
-		return result;
-	}
+
 
 }

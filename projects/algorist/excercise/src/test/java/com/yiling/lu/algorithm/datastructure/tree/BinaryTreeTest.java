@@ -148,11 +148,11 @@ public class BinaryTreeTest {
 		Integer[] array = {0,1,2,3,5,70,80,90};
 		TreeNode root = BinaryTree.constructTree(array);
 		root.print();
-		TreeNode node = BinaryTree.kthSmallest(root, 8);		
+		TreeNode node = BinaryTree.kthSmallest(root, 4);		
 		
 		node.print();
 		
-		Assert.assertEquals(90, node.data);
+		Assert.assertEquals(3, node.data);
 	}
 	
 	@Test
@@ -160,10 +160,10 @@ public class BinaryTreeTest {
 		Integer[] array = {0,1,2,3,5,70,80,90};
 		TreeNode root = BinaryTree.constructTree(array);
 		root.print();
-		TreeNode node = BinaryTree.kthSmallestWithPrimitiveType(root, 2);		
+		TreeNode node = BinaryTree.kthSmallestWithPrimitiveType(root, 4);		
 		
 		node.print();
-		Assert.assertEquals(1, node.data);
+		Assert.assertEquals(3, node.data);
 	}	
 	
 	@Test
