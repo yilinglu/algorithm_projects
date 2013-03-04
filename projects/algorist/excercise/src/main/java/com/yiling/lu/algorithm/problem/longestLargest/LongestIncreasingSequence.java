@@ -46,7 +46,8 @@ public class LongestIncreasingSequence {
 		ArrayList<Comparable> list = new ArrayList<Comparable>();
 		int size = array.length;
 		
-		
+		//array of the length of the longest increasing subsequence
+		//ENDING at each index.
 		Integer[] maxLIS = new Integer[size];
 		Integer[] pre = new Integer[size];
 		
@@ -60,8 +61,20 @@ public class LongestIncreasingSequence {
 
 			int k = i;
 			while (k >= 0) {
-				Comparable c = array[k];
-				if (c.compareTo(curValue) < 0 && maxLIS[k] > max) {
+				// check page 291 of TADM for explaination if
+				// lost in the code here:
+				
+				// basically we scan back to check among all 
+				// elements less than value at index i, the
+				// value that has the Longest Increasion Subsequence 
+				// length.
+				// 
+				Comparable valueAtK = array[k];
+				// if value at current index i is greater than 
+				// value scanning back, and 
+				if (valueAtK.compareTo(curValue) < 0 && maxLIS[k] > max) {
+					
+					// record the max length behind i and the index
 					max = maxLIS[k];
 					indexOfMax = k;
 				}
@@ -69,8 +82,8 @@ public class LongestIncreasingSequence {
 			}
 
 			if (max != Integer.MIN_VALUE) {
-				maxLIS[i] = max + 1;
-				pre[i] = indexOfMax;
+				maxLIS[i] = max + 1;// increment the length by 1
+				pre[i] = indexOfMax; // mark the parent of 
 			} else {
 				maxLIS[i] = 1;
 				pre[i] = null;
@@ -82,7 +95,7 @@ public class LongestIncreasingSequence {
 			int indexOfLis = findIndexOfMax(maxLIS);
 			
 			Integer m = indexOfLis;
-			
+			// backtrack to find the entire path
 			while(m != null){
 				list.add(0, array[m]);
 				m = pre[m];
@@ -92,10 +105,16 @@ public class LongestIncreasingSequence {
 		return list;
 	}
 
-	private static int findIndexOfMax(Comparable[] a){
+	/**
+	 * Given an input array, find and return the index of its max element.
+	 * 
+	 * @param input
+	 * @return index of max element.
+	 */
+	private static int findIndexOfMax(Comparable[] input){
 		int indexOfMax = 0;
-		for(int i=0; i<a.length; i++){
-			if(a[i].compareTo(a[indexOfMax])>=0){
+		for(int i=0; i<input.length; i++){
+			if(input[i].compareTo(input[indexOfMax])>=0){
 				indexOfMax = i;
 			}
 		}

@@ -1,6 +1,7 @@
 package com.yiling.lu.algorithm.datastructure.tree;
 
 import static org.junit.Assert.*;
+import junit.framework.Assert;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -133,5 +134,47 @@ public class BinaryTreeTest {
 		
 		assertEquals(-1, h);
 	}	
+	
+	@Test
+	public void testInorderTraversal(){
+		Integer[] array = {0,1,2,3,5,70,80,90};
+		TreeNode root = BinaryTree.constructTree(array);
+		root.print();
+		BinaryTree.inorder(root);
+	}
+	
+	@Test
+	public void testKthSmallest(){
+		Integer[] array = {0,1,2,3,5,70,80,90};
+		TreeNode root = BinaryTree.constructTree(array);
+		root.print();
+		TreeNode node = BinaryTree.kthSmallest(root, 8);		
+		
+		node.print();
+		
+		Assert.assertEquals(90, node.data);
+	}
+	
+	@Test
+	public void testKthSmallestPrimitiveTypeAsCounter(){
+		Integer[] array = {0,1,2,3,5,70,80,90};
+		TreeNode root = BinaryTree.constructTree(array);
+		root.print();
+		TreeNode node = BinaryTree.kthSmallestWithPrimitiveType(root, 2);		
+		
+		node.print();
+		Assert.assertEquals(1, node.data);
+	}	
+	
+	@Test
+	public void testKthMax(){
+		Integer[] array = {0,1,2,3,5,70,80,90};
+		TreeNode root = BinaryTree.constructTree(array);
+		root.print();
+		TreeNode node = BinaryTree.kthMax(root, 3);		
+		
+		node.print();
+		Assert.assertEquals(70, node.data);		
+	}
 
 }

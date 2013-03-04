@@ -5,7 +5,8 @@ import CtCILibrary.TreeNode;
 public class BinaryTree {
 
 	/**
-	 * Given two tree nodes, determine if they are exactly the same
+	 * Given two tree nodes, determine if they are exactly the same.
+	 * Better than comparing pre and inorder traversal sequence method.
 	 * 
 	 * @param r1
 	 * @param r2
@@ -57,5 +58,72 @@ public class BinaryTree {
 		}
 	}
 	
+	public static void inorder(TreeNode root){
+		if(root == null)
+			return;
+		inorder(root.left);
+		System.out.print(root.data + " - ");
+		inorder(root.right);
+	}
+	
+	public static TreeNode kthSmallestHelper(TreeNode root, int k, Counter count) {
+		if (root == null)
+			return root;
+		TreeNode temp = kthSmallestHelper(root.left, k, count);
+		
+		if(temp == null){
+			count.increment();
+			if (count.getCnt() == k) {
+				return root;
+			}
+			temp = kthSmallestHelper(root.right, k, count);
+		}
+		
+		return temp;
+	}
+	
+	public static TreeNode kthMaxInternal(TreeNode root, int k, int count){
+		if(root==null) return root;
+		
+		TreeNode temp = kthMaxInternal(root.right, k, count);
+		if(temp==null){
+			count++;
+			if(count==k){
+				return root;
+			}
+			temp = kthMaxInternal(root.left, k, count);
+		}
+		return temp;
+	}
+	
+	public static TreeNode kthMax(TreeNode root, int k){
+		return kthMaxInternal(root, k, 0);
+	}
+	
+	public static TreeNode kthSmallestWithPrimitiveType(TreeNode root, Integer k){
+		TreeNode result = kthSmallestWithPrimitiveTypeHelper(root, k, new Counter());
+		return result;
+	}	
+	
+	private static TreeNode kthSmallestWithPrimitiveTypeHelper(TreeNode root, int k, Counter count) {
+		if (root == null)
+			return root;
+		TreeNode temp = kthSmallestWithPrimitiveTypeHelper(root.left, k, count);
+		
+		if(temp == null){
+			count.increment();
+			if (count.getCnt() == k) {
+				return root;
+			}
+			temp = kthSmallestWithPrimitiveTypeHelper(root.right, k, count);
+		}
+		
+		return temp;
+	}	
+	
+	public static TreeNode kthSmallest(TreeNode root, int k){
+		TreeNode result = kthSmallestHelper(root, k, new Counter());
+		return result;
+	}
 
 }
