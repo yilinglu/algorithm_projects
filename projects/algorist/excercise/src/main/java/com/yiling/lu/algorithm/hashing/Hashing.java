@@ -31,4 +31,21 @@ public class Hashing {
 	private static int base26Value(char ch){
 		return ch - 'a';
 	}
+	
+	/**
+	 * Yet another hash function to compute hashcode for a given string.
+	 * From YouTube.com "CS 61B Lecture 21: Hash Tables" from UC Berkeley
+	 * 
+	 * @param str
+	 * @return
+	 */
+	public static int calcHash(String str){
+		int hashVal = 0;
+		for(int i=0; i<str.length(); i++){
+			hashVal = 127*hashVal + str.charAt(i)%16908799;
+		}
+		return hashVal;
+	}
+
+	
 }
