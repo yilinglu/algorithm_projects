@@ -1,7 +1,7 @@
 package com.yiling.lu.algorithm.problem.longestLargest.maxSubarray;
 
 /**
- * The two well know algorithms for solving maximum subarray problem:
+ * The two well-known algorithms for solving maximum subarray problem:
  * 1. Divide and Conquer
  * 2. Linear scanning
  *
