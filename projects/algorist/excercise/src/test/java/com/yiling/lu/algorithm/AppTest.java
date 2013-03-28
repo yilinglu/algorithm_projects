@@ -76,4 +76,21 @@ public class AppTest
     	int value = -44;
     	System.out.println("negative mod " + value%4);
     }
+    
+    @org.junit.Test
+    public void testCharIntConversion(){
+    	char ch = 'a';
+    	
+    	System.out.println("convert char to ascii value " + (int)ch);
+    }
+    
+    @org.junit.Test
+    public void testBooleanExpression(){
+    	boolean b1 = false&&false;
+    	boolean b2 = true&&true;
+    	boolean b3 = true&&false;
+    	System.out.println("Test b1 " + b1);
+    	System.out.println("Test b2 " + b2);
+    	System.out.println("Test b3 " + b3);
+    }    
 }
